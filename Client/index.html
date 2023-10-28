@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter Talk - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+     .main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(0, 0, 0);
+        flex-flow: column;
+        background: rgba(255, 255, 255, 0.5);
+        max-width: 500px;
+        margin: 10rem auto;
+        border-radius: 10px;
+        padding: 2rem;
+        backdrop-filter: blur(4px);
+        box-shadow: 3px 3px 20px rgb(2, 128, 192);
+     }
+     h1{
+        padding: 1rem;
+        font-size: 2.4rem;
+     }
+     form input{
+        width: 70%;
+        min-height: 50px;
+        min-width: 90px;
+        outline: none;
+        border: none;
+        background-color: rgb(36, 35, 35);
+        color: aquamarine;
+        padding: 10px;
+        border-radius: 6px;
+        font-size: 18px;
+     }
+     form input:is(:hover, :focus){
+        background-color: black;
+        border-bottom: 2px solid aquamarine;
+     }
+     form{
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+     }
+     form #btn{
+        width: 50%;
+        min-height: 40px;
+        min-width: 50px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(203, 203, 203);
+        color: black;
+        font-size: 20px;
+        margin-top: 1rem;
+        cursor: pointer;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        transition: all .7s ease;
+     }
+     
+     #btn:is(:hover, :focus){
+        background-color: black;
+        color: red;
+        border: 2px solid black;
+        transform: scale(1.1);
+     }
+
+    </style>
+</head>
+<body>
+    <main class="main">
+        <h1>Chatter Talk</h1>
+        <form id="form">
+            <input type="text" placeholder="Username" id="username" required>
+            <button type="submit" id="btn">Enter</button>
+        </form>
+    </main>
+
+    <script>
+        const btn = document.getElementById('form');
+        btn.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const inputName = document.getElementById('username');
+            if(inputName.value === '') return;
+
+            window.location.href = 'chat.html';
+
+        })
+    </script>
+</body>
+</html>

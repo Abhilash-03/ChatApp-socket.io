@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatter Talk</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js" integrity="sha512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <main class="app">
+        <h2 class="heading">Chatter Talk</h2>
+
+        <div class="displayMsg">
+            <ul id="lists">
+                <li>
+                    <div class="userInfo">
+                        <span class="userName">Ayush</span>
+                        <span class="time">5:30 A.M</span>
+                    </div>
+                    <div class="usermsg">
+                    <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1698409334~exp=1698409934~hmac=9695f95e0e9113d03f1557ff5373143a6b68e7c7f8b742b7acf9a2e07b5526ac"
+                        alt="user image" class="image" width="50" height="50">
+                    <span id="text-msg">Hey you!</span>
+                </div>
+                </li>
+                <li>
+                    <div class="userInfo">
+                        <span class="userName">Ayush</span>
+                        <span class="time">5:30 A.M</span>
+                    </div>
+                    <div class="usermsg">
+                    <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1698409334~exp=1698409934~hmac=9695f95e0e9113d03f1557ff5373143a6b68e7c7f8b742b7acf9a2e07b5526ac"
+                        alt="user image" class="image" width="50" height="50">
+                    <span id="text-msg">Hey you!</span>
+                </div>
+                </li>
+            </ul>
+        </div>
+
+        <form id="textMsg">
+            <input type="text" placeholder="Say Hi..." id="inputMsg" class="msg" required>
+            <button type="submit" id="sendBtn" class="btn">Send</button>
+        </form>
+    </main>
+</body>
+
+<script src="js/index.js"></script>
+</html>

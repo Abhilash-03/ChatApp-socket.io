@@ -21,5 +21,9 @@ io.on('connection', (socket) => {
       io.emit('message', data);
     })
 
+    socket.on('activity', (name) => {
+        socket.broadcast.emit('activity', name);    
+    })
+
    socket.on('disconnect', () => console.log("A user has been disconnected from app!"))
 })

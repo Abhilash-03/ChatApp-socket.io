@@ -14,6 +14,8 @@ form.addEventListener('submit', (e) => {
 })
 
 function msgFormat(msg){
+    activity.textContent = '';
+
     let li = document.createElement('li');
     li.className = 'post-msg';
     li.innerHTML = `
@@ -33,4 +35,22 @@ function msgFormat(msg){
 
 socket.on('message', (data) => {
     msgFormat(data);
+})
+
+// activity detection
+inputMsg.addEventListener('keypress', () => {
+    socket.emit('activity', socket.id.substring(0, 5));
+})
+
+let activityTimer;
+
+socket.on('activity', (name) => {
+    const activity = document.getElementById('activity');
+    activity.textContent = `${name} typing...`;
+
+    clearTimeout(activityTimer);
+
+    activityTimer = setTimeout(() => {
+        activity.textContent = '';
+    }, 1500);
 })

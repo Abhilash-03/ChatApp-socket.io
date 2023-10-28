@@ -39,6 +39,7 @@ img{
 }
 .displayMsg{
     display: flex;
+    flex-flow: column;
     width: 100%;
     max-width: 700px;
     min-height: 640px;

@@ -1,36 +1,57 @@
 const socket = io('ws://localhost:5000')
 const inputMsg = document.getElementById('inputMsg');
 const form = document.getElementById('textMsg');
+const username = document.getElementById('username');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const msg = inputMsg.value;
-    if(inputMsg.value){
-      socket.emit('message', msg);
+    if(username.value && inputMsg.value){
+      socket.emit('message', {
+        name: username.value,
+        text: inputMsg.value
+      });
       inputMsg.value = "";
     }
 
     inputMsg.focus();
 })
 
-function msgFormat(msg){
-    activity.textContent = '';
+const enterInChat = document.querySelector('.join');
+enterInChat.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if(username.value){
+        socket.emit('enterChat', {
+            name: username.value
+        })
+    }
+})
 
+function msgFormat(data){
+    activity.textContent = '';
+    const {name, text, time} = data;
     let li = document.createElement('li');
     li.className = 'post-msg';
-    li.innerHTML = `
+    if(name === username.value) li.className = 'post post-right';
+    if(name !== username.value && name !== 'Bot') li.className = 'post post-left'
+    if(name !== 'Bot'){
+        li.innerHTML = `
         <div class="userInfo">
-            <span class="userName">User</span>
-            <span class="time">5:30 P.M</span>
+            <span class="userName ${name === username.value ? 'userPost' : 'replyPost'} ">${name || 'User'}</span>
+            <span class="time">${time}</span>
         </div>
         <div class="usermsg">
-            <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1698409334~exp=1698409934~hmac=9695f95e0e9113d03f1557ff5373143a6b68e7c7f8b742b7acf9a2e07b5526ac"
+            <img src="img/img.jpg"
                 alt="user image" class="image" width="50" height="50">
-            <span id="text-msg">${msg}</span>
+            <span id="text-msg">${text}</span>
         </div>
     `
+    } else{
+        li.innerHTML = `<div class="post-text">${text}</div>`
+    }
+   
     const ul = document.querySelector('ul');
     ul.appendChild(li);
+    ul.scrollTop = ul.scrollHeight;
 }
 
 socket.on('message', (data) => {
@@ -39,14 +60,16 @@ socket.on('message', (data) => {
 
 // activity detection
 inputMsg.addEventListener('keypress', () => {
-    socket.emit('activity', socket.id.substring(0, 5));
+    socket.emit('activity', username.value);
 })
 
 let activityTimer;
 
 socket.on('activity', (name) => {
     const activity = document.getElementById('activity');
-    activity.textContent = `${name} typing...`;
+    if(username.value){
+        activity.textContent = `${name} typing...`;
+    }
 
     clearTimeout(activityTimer);
 

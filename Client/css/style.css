@@ -7,7 +7,7 @@
 body{
     font-size: 18px;
    background-color: rgba(0, 0, 0, 0.751);
-   background-image: url(https://img.freepik.com/free-vector/dialogue-chat-clouds-speech-bubble-icon-from-lines-triangles-particle-style-design-low-poly-technology-devices-people-communication-concept-blue-background_587448-471.jpg?w=1060&t=st=1698512338~exp=1698512938~hmac=f6a31f9e1ba79862caffea5363e78a853916c4edbe4071e677d5243b06dbdd0c);
+   background-image: url(../img/bg.webp);
    background-position: center;
    background-repeat: no-repeat;
    background-size: cover;
@@ -21,8 +21,6 @@ body{
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
     margin: 2rem auto;
     color: white;
 
@@ -37,32 +35,34 @@ img{
     font-size: 40px;
     padding-bottom: 10px;
 }
+
 .displayMsg{
     display: flex;
     flex-flow: column;
     width: 100%;
     max-width: 700px;
-    min-height: 640px;
+    min-height: 550px;
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.731);
     color: white;
-    background-image: url(https://img.freepik.com/free-vector/abstract-blue-circle-black-background-technology_1142-10526.jpg?w=1380&t=st=1698410357~exp=1698410957~hmac=d41f4f5b5acde964a837b20af02f9b718e85cc59c124d1f701ae47e6a036b8f1);
+    background-image: url(../img/msgBg.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-blend-mode: color-burn;
     backdrop-filter: blur(20px);
     box-shadow: 2px 2px 14px white;
-    height: 640px;
+    height: 550px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .displayMsg::-webkit-scrollbar{
-    width: 5px;
+    width: 7px;
     background-color: black;
     color: white;
 }
+
 .displayMsg::-webkit-scrollbar-thumb{
     background: linear-gradient(to top, cyan, rgb(97, 97, 206));
     border-radius: 10px;
@@ -70,23 +70,44 @@ img{
 
 .displayMsg ul{
     width: 100%;
+    display: flex;
+    flex-flow: column;
+}
+
+.post-left{
+    align-self: flex-start;
+    width: 60%;
+    background-color: #2890cd8c;
+}
+.post-right{
+    align-self: flex-end;
+    width: 60%;
+    background-color: #22adbd94;
+}
+.post-right .userInfo{
+    background-color: #2d2929a3;
+
+}
+.post-left .userInfo{
+ background-color: #251e1e70;
+
+}
+.post-text{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(235, 234, 234);
+    color: black;
+    font-size: 19px;
+    font-weight: 500;
+    border-radius: 6px;
 }
 
 .displayMsg ul li{
     list-style: none;
-    background-color: rgba(80, 80, 224, 0.678);
     backdrop-filter: blur(20px);
-    display: flex;
-    flex-flow: column;
-    border-radius: 5px;
-    width: 50%;
     margin-bottom: 1rem;
-    clear: both;
 }
-.displayMsg ul li:nth-child(even){
-    float: right;
-    background-color: rgba(146, 87, 201, 0.728);
-}
+
 ul li .userInfo{
     display: flex;
     justify-content: space-between;
@@ -110,12 +131,12 @@ ul li .usermsg span{
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
 }
 
 #textMsg input{
+    width: 100%;
   min-height: 50px;
-  min-width: 635px;
+  max-width: 635px;
   font-size: 1.2rem;
   padding: 10px;
   outline: none;
@@ -125,7 +146,7 @@ ul li .usermsg span{
 
 #textMsg .btn{
     min-height: 55px;
-    min-width: 40px;
+    min-width: 35px;
     font-size: 1.1rem;
     padding: 10px;
     background-color: rgb(108, 108, 108);
@@ -142,3 +163,20 @@ ul li .usermsg span{
     background-color: green;
 }
 
+#form input{
+    min-height: 50px;
+    padding: 10px;
+    margin: 1rem 0;
+    border-radius: 6px;
+    outline: none;
+    font-size: 17px;
+}
+
+#form button{
+    min-width: 60px;
+    min-height: 50px;
+    font-size: 17px;
+    border-radius: 6px;
+    cursor: pointer;
+
+}

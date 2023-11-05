@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatter Talk</title>
     <link rel="stylesheet" href="css/style.css">
-
+    <link rel="shortcut icon" href="favicon/icon.png" type="image/x-icon">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js" integrity="sha512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <main class="app">
-        <h2 class="heading">Chatter Talk</h2>
+        <h2 class="heading"><span class="icon"><img src="img/icon.png" alt="icon"></span> Chatter Talk</h2>
         <form id="form" class="join">
-            <input type="text" placeholder="Username" id="username" required>
+            <input type="text" placeholder="Username" id="username" required autocomplete="off">
             <button type="submit" id="btn">Enter</button>
         </form>
 
@@ -24,7 +24,7 @@
         </div>
 
         <form id="textMsg">
-            <input type="text" placeholder="Say Hi..." id="inputMsg" class="msg" required>
+            <input type="text" placeholder="Say Hi..." id="inputMsg" class="msg" required autocomplete="off">
             <button type="submit" id="sendBtn" class="btn">Send</button>
         </form>
     </main>

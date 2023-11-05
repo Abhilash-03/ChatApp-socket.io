@@ -51,7 +51,8 @@ function msgFormat(data){
    
     const ul = document.querySelector('ul');
     ul.appendChild(li);
-    ul.scrollTop = ul.scrollHeight;
+    let scroll = document.querySelector('.displayMsg');
+    scroll.scrollTop = scroll.scrollHeight;
 }
 
 socket.on('message', (data) => {

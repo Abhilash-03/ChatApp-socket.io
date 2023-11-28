@@ -11,7 +11,11 @@ const chatServer = app.listen(PORT, () => console.log(`Server listening on port 
 
 const io = new Server(chatServer, {
     cors: {
-        origin: process.env.NODE_ENV === 'production' ? false : ['http://localhost:5500', 'http://127.0.0.1:5500']
+        origin: "https://chattertalk.vercel.app",
+        methods: ['GET', 'POST'],
+        transports: ["polling", "websocket", "webtransport"],
+        allowedHeaders: ['Content-Type', ' X-PINGOTHER']
+
     }
 })
 
@@ -20,6 +24,7 @@ io.on('connection', (socket) => {
     socket.emit('message', buildMsg(ADMIN, `Welcome to the chatter talk.`));
 
     socket.on('enterChat', ({name}) => {
+        socket.emit('message', buildMsg(ADMIN, `Hello ${name}, Say hi to strangers!!!`))
         socket.broadcast.emit('message', buildMsg(ADMIN, `${name} joined the chat!`));
     })    
 

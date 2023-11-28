@@ -1,8 +1,4 @@
-const socket = io("https://chatapp-server-psi.vercel.app", {
-  forceNew: true,
-  transports: ["websocket", "polling"] 
-});
-// const socket = io("ws://localhost:5000");
+const socket = io("https://chattertalk.onrender.com/");
 
 const inputMsg = document.getElementById("inputMsg");
 const form = document.getElementById("textMsg");
@@ -77,7 +73,7 @@ let activityTimer;
 socket.on("activity", (name) => {
   const activity = document.getElementById("activity");
   if (username.value) {
-    activity.textContent = `${name} typing...`;
+    activity.textContent = `${name} is typing...`;
   }
 
   clearTimeout(activityTimer);

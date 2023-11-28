@@ -12,10 +12,6 @@ const chatServer = app.listen(PORT, () => console.log(`Server listening on port 
 const io = new Server(chatServer, {
     cors: {
         origin: "https://chattertalk.vercel.app",
-        methods: ['GET', 'POST'],
-        transports: ["polling", "websocket", "webtransport"],
-        allowedHeaders: ['Content-Type', ' X-PINGOTHER']
-
     }
 })
 

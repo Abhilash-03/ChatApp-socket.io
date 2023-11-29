@@ -1,4 +1,5 @@
 const socket = io("https://chattertalk.onrender.com/");
+// const socket = io("http://localhost:5000");
 
 const inputMsg = document.getElementById("inputMsg");
 const form = document.getElementById("textMsg");

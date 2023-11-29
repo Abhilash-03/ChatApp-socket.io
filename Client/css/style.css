@@ -21,14 +21,13 @@ body{
     flex-flow: column;
     justify-content: center;
     align-items: center;
-    margin: 10px auto;
+    /* margin: 10px auto; */
     color: white;
-
 }
 
 img{
     border-radius: 50%;
-    border: 2px solid gold;
+    box-shadow: 1px 1px 20px black;
 }
 
 .icon img{
@@ -114,6 +113,7 @@ img{
     list-style: none;
     backdrop-filter: blur(20px);
     margin-bottom: 1rem;
+    border-radius: 6px;
 }
 
 ul li .userInfo{
@@ -188,4 +188,19 @@ ul li .usermsg span{
     border-radius: 6px;
     cursor: pointer;
 
+}
+
+@media screen and (max-width: 480px) {
+    .post-left, .post-right{
+        width: 80%;
+        border-radius: 5px;
+        
+    }
+    .displayMsg ul li, ul li .userInfo {
+        font-size: 14px;
+    }
+    img{
+        height: 30px;
+        width: 30px;
+    }
 }

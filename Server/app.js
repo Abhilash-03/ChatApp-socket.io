@@ -11,7 +11,7 @@ const chatServer = app.listen(PORT, () => console.log(`Server listening on port 
 
 const io = new Server(chatServer, {
     cors: {
-        origin: "https://chattertalk.vercel.app",
+        origin:["https://chattertalk.vercel.app", 'http://localhost:5500', "http://127.0.0.1:5500"],
     }
 })
 
@@ -42,7 +42,9 @@ function buildMsg(name, text) {
         text,
         time: new Intl.DateTimeFormat('default', {
             hour: 'numeric',
-            minute: 'numeric'
+            minute: 'numeric',
+            timeZone: 'Asia/Kolkata'
         }).format(new Date())
+        
     }
 }
